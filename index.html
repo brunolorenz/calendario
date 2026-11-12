@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário 2026: Predinho do Dia ™ | Uns Predinhos</title>
+<meta name="description" content="Pintei um predinho por dia, sempre em uma rua com o nome do dia. Agora as pinturas viraram um calendário A3 para pendurar na parede.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calendário 2026: Predinho do Dia ™">
+<meta property="og:description" content="Um predinho por dia, sempre em uma rua com o nome do dia. Pré-venda até 27 de novembro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fundo:#F8F6F0;
+    --papel:#FFFFFF;
+    --tinta:#111111;
+    --azul:#3B82F6;
+    --sol:#FFD93B;
+    --mudo:#52525B;
+    --wrap:1100px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
+  body{
+    background-color:var(--fundo);
+    color:var(--tinta);
+    font-family:'DM Sans', system-ui, sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+    padding-bottom: 90px;
+  }
+  @media (min-width: 769px) { body { padding-bottom: 0; } }
+  body::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.07;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--sol);color:var(--tinta)}
+  a:focus-visible,summary:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.25rem,4vw,2rem)}
+
+  .sticker {
+    display: inline-block; padding: 6px 14px; background: var(--sol);
+    border: 2px solid var(--tinta); border-radius: 999px; font-weight: 600;
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    box-shadow: 0 2px 0 var(--tinta);
+  }
+
+  /* Nav */
+  .nav{
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem clamp(1.25rem,4vw,2rem);
+    background: rgba(248, 246, 240, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 2.5px solid var(--tinta);
+  }
+  .nav__mark{ font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--tinta); text-decoration: none; }
+  .nav__links { display: none; gap: 1.5rem; }
+  @media (min-width: 768px) { .nav__links { display: flex; } }
+  .nav__links a { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--tinta); text-decoration: none; transition: color 0.2s; }
+  .nav__links a:hover { color: var(--azul); }
+  .nav__cta{
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 0.9rem;
+    color: #fff; text-decoration: none; background: var(--azul);
+    border: 2px solid var(--tinta); border-radius: 100px; padding: 0.5rem 1.2rem;
+    box-shadow: 0 3px 0 var(--tinta); transition: all 0.1s;
+  }
+  .nav__cta:hover { transform: translateY(2px); box-shadow: 0 1px 0 var(--tinta); }
+
+  /* Hero */
+  .hero{ padding-top: 8rem; padding-bottom: 3.5rem; min-height: calc(100svh - 250px); display: flex; align-items: center; }
+  .hero__grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+
+  h1{
+    font-family:'Bricolage Grotesque', sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 3.7vw, 3.1rem); line-height: 1.12; letter-spacing: -0.02em; margin: 1rem 0;
+  }
+  h1 span { white-space:nowrap; background: var(--sol); padding: 0 0.2em; border-radius: 8px; display: inline-block; transform: rotate(-1deg); border: 2px solid var(--tinta);}
+
+  .lead{
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600;
+    font-size: clamp(1.2rem, 2vw, 1.4rem); line-height: 1.3; margin-bottom: 1.5rem; max-width: 24ch;
+  }
+  .hero__text{ font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; max-width: 46ch; }
+  .hero__aviso{ font-size: 1.05rem; line-height: 1.5; margin-bottom: 1.8rem; max-width: 46ch; font-weight: 500; }
+
+  .price-box { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .price-old { text-decoration: line-through; color: var(--mudo); font-size: 1.2rem; font-weight: 500; }
+  .price-new { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 2.5rem; line-height: 1; }
+  .prazo-linha{ font-weight: 600; font-size: 0.95rem; margin-bottom: 1.4rem; }
+  .prazo-linha strong{ background: var(--sol); padding: 0 .3em; border-radius: 4px; }
+
+  /* Botões */
+  .btn{
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.1rem;
+    color: #fff; background: var(--azul); text-decoration: none;
+    gap: .8rem; padding: 0.8rem 0.8rem 0.8rem 1.5rem; border-radius: 99px; border: 2.5px solid var(--tinta);
+    box-shadow: 0 6px 0 var(--tinta); transition: all 0.15s ease; cursor: pointer; width: 100%;
+  }
+  .btn svg { width: 40px; height: 40px; padding: 8px; background: var(--tinta); border-radius: 50%; transition: transform 0.2s; flex: none; }
+  .btn:hover { transform: translateY(3px); box-shadow: 0 3px 0 var(--tinta); }
+  .btn:hover svg { transform: translateX(4px); }
+  .btn:active { transform: translateY(6px); box-shadow: 0 0 0 var(--tinta); }
+  .hero .btn{ max-width: 420px; }
+
+  /* Calendário 3D — proporção real do A3 (297 x 420) */
+  .hero__visual { display: flex; justify-content: center; align-items: center; position: relative; padding-top: 18px; }
+  .hero__visual > div { width: 100%; max-width: 380px; padding-right: 14px; }
+  @media (min-width:901px){
+    .hero{ position:relative; }
+    .hero::before{ content:''; position:absolute; top:0; bottom:0; right:0; width:calc(50% - 1.5rem); background:var(--sol); border-left:2.5px solid var(--tinta); }
+    .hero > .wrap{ position:relative; z-index:1; }
+    .hero__grid{ grid-template-columns: 1fr 1fr; gap:3rem; }
+    .hero__visual{ margin-right:calc(-1 * max(0px, (100vw - 1036px) / 2)); }
+    .hero__visual > div{ max-width:420px; }
+    .hero__legenda{ color:var(--tinta); font-weight:500; }
+  }
+  .calendar-container {
+    position: relative; width: 100%; max-width: 380px; aspect-ratio: 297 / 420;
+    perspective: 2500px; filter: drop-shadow(0 12px 0 var(--tinta)); isolation: isolate;
+  }
+  .calendar-container.animavel{ cursor: pointer; }
+  /* folhas que aparecem por trás, sugerindo o bloco de páginas */
+  .calendar-container::before, .calendar-container::after{
+    content:''; position:absolute; inset:0; background:#fff; border:2.5px solid var(--tinta); border-radius:4px; z-index:-1;
+  }
+  .calendar-container::before{ transform: translate(7px,7px); }
+  .calendar-container::after{ transform: translate(14px,14px); z-index:-2; }
+  .calendar-top { position: absolute; top: -15px; left: 0; right: 0; height: 30px; display: flex; justify-content: center; gap: 10px; z-index: 100; }
+  .ring { width: 12px; height: 32px; background: linear-gradient(90deg, #f0f0f0 0%, #fff 50%, #d0d0d0 100%); border: 2px solid var(--tinta); border-radius: 10px; box-shadow: 1px 1px 0 var(--tinta); }
+  .page {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--papel); border: 2.5px solid var(--tinta); border-radius: 4px;
+    transform-origin: center top; transform-style: preserve-3d; backface-visibility: hidden;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .page-front { position: absolute; inset: 0; backface-visibility: hidden; z-index: 2; overflow: hidden; border-radius: 2px; background:#fdf8f3; }
+  .page-back { position: absolute; inset: 0; backface-visibility: hidden; background: #fdfdfd; transform: rotateX(180deg); z-index: 1; border-radius: 2px; }
+  .page img { width: 100%; height: 100%; object-fit: contain; display:block; }
+  .page.flipped { transform: rotateX(180deg); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .hero__legenda{ text-align:center; font-size:.85rem; color:var(--mudo); margin-top:1.6rem; }
+
+
+
+  /* Para onde vai o dinheiro */
+  .rateio__card{ background:#fff; border:2.5px solid var(--tinta); border-radius:20px; box-shadow:0 5px 0 var(--tinta); padding:clamp(1.4rem,3vw,2.2rem); }
+  .rateio__topo{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:.4rem 1.5rem; margin-bottom:1.2rem; }
+  .rateio__topo b{ font-family:'Bricolage Grotesque',sans-serif; font-size:1.5rem; }
+  .rateio__topo span{ color:var(--mudo); font-size:.95rem; }
+  .rateio__barra{ display:flex; height:64px; border:2.5px solid var(--tinta); border-radius:14px; overflow:hidden; background:#fff; }
+  .rateio__barra > div{ min-width:0; border-right:2.5px solid var(--tinta); transition:flex-basis .5s ease; }
+  .rateio__barra > div:last-child{ border-right:0; }
+  .rateio__lista{ list-style:none; margin:1.4rem 0 0; padding:0; display:grid; gap:.9rem; }
+  .rateio__lista li{ display:grid; grid-template-columns:22px 1fr auto; gap:.2rem .8rem; align-items:start; }
+  .rateio__cor{ width:22px; height:22px; border:2.5px solid var(--tinta); border-radius:6px; margin-top:.15rem; }
+  .rateio__lista strong{ display:block; font-size:1.02rem; }
+  .rateio__lista small{ display:block; color:var(--mudo); font-size:.9rem; line-height:1.4; margin-top:.1rem; }
+  .rateio__valor{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.15rem; text-align:right; white-space:nowrap; }
+  .rateio__valor small{ font-family:'DM Sans',sans-serif; font-weight:500; }
+  .rateio__nota{ margin-top:1.2rem; font-size:.9rem; color:var(--mudo); }
+  .rateio__nota a, #rateio p a{ color:inherit; font-weight:600; text-underline-offset:3px; }
+
+
+  /* Simulação em vídeo no topo */
+  .sim{ margin:0; }
+  .sim__moldura{ position:relative; border:2.5px solid var(--tinta); border-radius:18px; box-shadow:0 8px 0 var(--tinta); overflow:hidden; background:#ddd; aspect-ratio:720/1082; }
+  .sim__moldura video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .sim__selo{ position:absolute; left:12px; bottom:12px; background:#fff; border:2px solid var(--tinta); border-radius:100px; padding:.25rem .8rem; font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+  .sim .hero__legenda{ margin-top:1.6rem; line-height:1.45; }
+  /* Folhas reais (calendário animado) na seção O objeto */
+  .folhas-reais{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin:2.5rem 0; }
+  .folhas-reais__txt h3{ font-family:'Bricolage Grotesque',sans-serif; font-size:1.6rem; margin-bottom:.8rem; }
+  .folhas-reais__txt p{ font-size:1.05rem; line-height:1.6; }
+  .folhas-reais__cal{ display:flex; justify-content:center; padding:18px 14px 14px 0; }
+  .folhas-reais__cal .calendar-container{ max-width:340px; }
+  @media (max-width:900px){ .folhas-reais{ grid-template-columns:1fr; gap:2rem; } .folhas-reais__cal .calendar-container{ max-width:300px; } }
+
+  /* Faixa de aquarelas logo abaixo do topo */
+  .arte-faixa{ overflow:hidden; border-top:2.5px solid var(--tinta); border-bottom:2.5px solid var(--tinta); background:#fff; padding:1.4rem 0; }
+  .arte-faixa__trilho{ display:flex; align-items:center; gap:1.2rem; width:max-content; animation:faixa 80s linear infinite; }
+  .arte-faixa:hover .arte-faixa__trilho{ animation-play-state:paused; }
+  .arte-faixa img{ height:190px; width:190px; object-fit:cover; flex:none; border:2.5px solid var(--tinta); border-radius:8px; background:#fff; box-shadow:0 4px 0 var(--tinta); }
+  .arte-faixa img.big{ height:250px; width:252px; }
+  .arte-faixa img:nth-child(odd){ transform:rotate(-1.5deg); }
+  .arte-faixa img:nth-child(even){ transform:rotate(1.5deg); }
+  @keyframes faixa{ to{ transform:translateX(-50%); } }
+  @media (max-width:700px){ .arte-faixa img{ height:130px; width:130px; } .arte-faixa img.big{ height:170px; width:172px; } .arte-faixa{ padding:1rem 0; } }
+  @media (prefers-reduced-motion:reduce){ .arte-faixa__trilho{ animation:none; } .arte-faixa{ overflow-x:auto; } }
+
+  /* Seções */
+  section { padding: clamp(3.5rem, 7vh, 5rem) 0; }
+  /* Transição entre seções: silhueta de predinhos */
+  :root{ --tom:#EFE9D6; }
+  section.tom{ position:relative; background:var(--tom); border-bottom:2.5px solid var(--tinta); }
+  section.tom::before{
+    content:''; position:absolute; left:0; right:0; top:-39px; height:40px; pointer-events:none;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='40' viewBox='0 0 200 40'%3E%3Cpath d='M0 4H20V18H44V6H70V22H110V10H140V16H176V4H200V41H0Z' fill='%23EFE9D6'/%3E%3Cpath d='M0 4H20V18H44V6H70V22H110V10H140V16H176V4H200' fill='none' stroke='%23111' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-x bottom left/200px 40px;
+  }
+  section.tom + section{ padding-top:clamp(4rem,8vh,6rem); }
+
+  h2 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1rem;}
+  h2 em { font-style: normal; background: var(--sol); padding: 0 0.2em; border-radius: 8px; border: 2px solid var(--tinta);}
+
+  /* Conceito + mini galeria */
+  .concept__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .concept__grid p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.2rem; }
+  .mini-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: 1rem; }
+  .mini-gallery-item {
+    background: #fff; padding: 0.6rem; border: 2px solid var(--tinta);
+    border-radius: 8px; box-shadow: 0 4px 0 var(--tinta); transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .mini-gallery-item:nth-child(1) { transform: rotate(-3deg); }
+  .mini-gallery-item:nth-child(2) { transform: rotate(2deg) translateY(10px); }
+  .mini-gallery-item:nth-child(3) { transform: rotate(2deg); }
+  .mini-gallery-item:nth-child(4) { transform: rotate(-2deg) translateY(-10px); }
+  .mini-gallery-item:hover { transform: rotate(0) scale(1.05); z-index: 10; position: relative;}
+  .mini-gallery-item img { width: 100%; height: auto; display: block; border-radius: 4px; aspect-ratio: 1/1; object-fit: cover; }
+  .mini-gallery-label {
+    background: #fff; border: 1.5px solid var(--tinta); border-radius: 4px;
+    margin-top: -10px; position: relative; z-index: 5; padding: 4px; text-align: center;
+    margin-left: 10px; margin-right: 10px; box-shadow: 2px 2px 0 var(--tinta);
+  }
+  .mini-gallery-caption { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 0.85rem; line-height: 1.1; }
+  .mini-gallery-sub { font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.65rem; color: var(--mudo); text-transform: uppercase; margin-top: 2px;}
+
+  /* Objeto */
+  .features__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem;}
+  .feature-card { background: var(--papel); padding: 1.5rem; border: 2.5px solid var(--tinta); border-radius: 20px; box-shadow: 0 4px 0 var(--tinta);}
+  .feature-card h3 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem;}
+  .detalhe-faixa{ margin-top:1.5rem; background:#fff; border:2.5px solid var(--tinta); border-radius:20px; box-shadow:0 4px 0 var(--tinta); padding:1.5rem; }
+  .detalhe-faixa h3{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.2rem; margin-bottom:.5rem; }
+  .detalhe-faixa img{ display:block; width:100%; max-width:600px; height:auto; margin:1rem 0 .5rem; border:1.5px solid var(--tinta); border-radius:6px; }
+  .detalhe-faixa small{ color:var(--mudo); }
+
+
+  /* Hero: pouca coisa competindo — título e botão são os pontos fortes */
+  .eyebrow{ font-size:.85rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--mudo); }
+  h1{ margin: .8rem 0 1.4rem; }
+  .lead{ font-family:'DM Sans',system-ui,sans-serif; font-weight:400; font-size:1.2rem; line-height:1.5; max-width:40ch; margin-bottom:.9rem; }
+  .lead strong{ font-weight:600; }
+  .hero__sub{ color:var(--mudo); font-size:1rem; line-height:1.5; max-width:44ch; margin:1.3rem 0 2rem; }
+  .compra{ max-width:420px; }
+  .compra__preco{ display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; margin-bottom:.3rem; }
+  .compra .price-new{ font-size:2.6rem; }
+  .compra .price-old{ font-size:1.1rem; }
+  .compra__tag{ font-size:.85rem; font-weight:600; color:var(--mudo); }
+  .timer{ font-size:.95rem; color:var(--mudo); margin:0 0 1.1rem; }
+  .timer b{ color:var(--tinta); font-weight:600; font-variant-numeric:tabular-nums; }
+  .compra .btn{ max-width:none; }
+  .compra__meta{ margin-top:.9rem; font-size:.85rem; color:var(--mudo); }
+  .cta-final .timer{ color:rgba(255,255,255,.7); margin:0 0 1.4rem; }
+  .cta-final .timer b{ color:#fff; }
+
+  /* Folhas (miniaturas) */
+  .folhas{ margin:1.8rem 0 .5rem; }
+  .folhas__titulo{ font-weight:600; margin-bottom:.8rem; }
+  .folhas__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+  .folhas__grid button{ background:#fff; border:2.5px solid var(--tinta); border-radius:10px; box-shadow:0 4px 0 var(--tinta); padding:.4rem .4rem .2rem; cursor:pointer; font:inherit; color:inherit; transition:transform .15s; }
+  .folhas__grid button:hover{ transform:translateY(-3px); }
+  .folhas__grid img{ display:block; width:100%; height:auto; border-radius:4px; }
+  .folhas__grid span{ display:block; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.9rem; padding:.4rem 0 .2rem; }
+  @media (max-width:600px){ .folhas__grid{ grid-template-columns:repeat(2,1fr); } }
+  dialog#zoom{ border:2.5px solid var(--tinta); border-radius:16px; padding:0; width:min(92vw,720px); max-height:92vh; overflow:auto; background:#fdf8f3; margin:auto; }
+  dialog#zoom::backdrop{ background:rgba(0,0,0,.65); }
+  dialog#zoom img{ display:block; width:100%; height:auto; }
+  .zoom__x{ position:sticky; top:.6rem; float:right; margin:.6rem .6rem -3rem 0; width:2.4rem; height:2.4rem; border-radius:50%; border:2px solid var(--tinta); background:var(--sol); font-size:1.4rem; line-height:1; cursor:pointer; z-index:2; }
+
+  /* Só um dia */
+  .um-dia{ display:flex; gap:2rem; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--sol); border:2.5px solid var(--tinta); border-radius:24px; box-shadow:0 5px 0 var(--tinta); padding:2rem; }
+  .um-dia h2{ margin-bottom:.5rem; font-size:clamp(1.5rem,3vw,2.2rem); }
+  .um-dia p{ max-width:46ch; font-size:1.05rem; }
+  .um-dia .btn{ max-width:340px; background:var(--tinta); color:#fff; box-shadow:0 6px 0 var(--azul); }
+  .um-dia .btn svg{ background:var(--sol); }
+  .um-dia .btn svg path{ stroke:var(--tinta); }
+  .cta-final .outro{ margin-top:1.2rem; font-size:.95rem; }
+  .cta-final .outro a{ color:var(--sol); font-weight:600; }
+  details p a{ color:var(--tinta); font-weight:600; }
+
+  /* Vídeos do Instagram */
+  .reels{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+  .reels iframe{ width:100%; height:620px; border:2.5px solid var(--tinta); border-radius:20px; box-shadow:0 4px 0 var(--tinta); background:#fff; }
+
+  /* Ficha */
+  .specs-wrapper { background: #fff; border: 2.5px solid var(--tinta); border-radius: 24px; box-shadow: 0 5px 0 var(--tinta); padding: 1.5rem 2rem; }
+  .specs { list-style: none; }
+  .specs li { display: flex; justify-content: space-between; gap:1rem; padding: 1rem 0; border-bottom: 1.5px solid var(--tinta); font-size: 1.05rem;}
+  .specs li:last-child { border-bottom: none; padding-bottom: 0; }
+  .specs b { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; }
+
+  /* Depoimentos */
+  .nota-depoimentos{ margin-bottom:1rem; color:var(--mudo); }
+  .testimonial-track { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: 1rem 0 2rem; scrollbar-width: none; }
+  .testimonial-track::-webkit-scrollbar { display: none; }
+  .testimonial-card { flex: 0 0 100%; scroll-snap-align: center; background: #fff; border: 2.5px solid var(--tinta); border-radius: 24px; padding: 2rem; box-shadow: 0 5px 0 var(--tinta); display: flex; flex-direction: column; gap: 1rem; }
+  .testimonial-card p { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; line-height: 1.5; flex-grow: 1; }
+  .testimonial-author { display: flex; align-items: center; gap: 1rem; border-top: 2px dashed var(--tinta); padding-top: 1rem; }
+  .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--sol); border: 2px solid var(--tinta); display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1rem; flex:none;}
+  .testimonial-name { font-weight: 600; font-size: 0.95rem; display:block; }
+  .testimonial-role { font-size: 0.8rem; color: var(--mudo); }
+  .testimonial-more a { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: var(--tinta); text-decoration: underline; }
+  @media(min-width: 768px) { .testimonial-track { display: grid; grid-template-columns: 1fr 1fr 1fr; overflow: visible; } .testimonial-card { flex: auto; } }
+
+  /* Artista */
+  .artist__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: center;}
+  .artist__img { background: var(--sol); border: 2.5px solid var(--tinta); border-radius: 24px; box-shadow: 0 5px 0 var(--tinta); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; transform: rotate(3deg); overflow:hidden; }
+  .artist__img{ padding:0; }
+  .artist__img img{ width:100%; height:100%; object-fit:cover; object-position:50% 30%; display:block; }
+  .artist__img span { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: var(--tinta); }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 1rem; }
+  details { background: #fff; border: 2.5px solid var(--tinta); border-radius: 18px; box-shadow: 0 4px 0 var(--tinta); overflow: hidden; }
+  summary { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.1rem; padding: 1.2rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap:1rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-size: 1.5rem; line-height: 1; }
+  details[open] summary::after { content: '−'; }
+  details p { padding: 0 1.2rem 1.2rem; font-size: 1rem; line-height: 1.6; color: var(--mudo); border-top: 1.5px dashed var(--tinta); padding-top: 1rem; margin-top: 0.5rem;}
+
+  /* CTA final */
+  .cta-final { background: var(--tinta); border: 2.5px solid var(--tinta); border-radius: 32px; box-shadow: 0 8px 0 var(--azul); padding: 3rem 2rem; text-align: center; color: #fff; margin-bottom: 4rem; }
+  .cta-final h2 { color: #fff; margin-bottom: 1.5rem; }
+  .cta-final h2 em { color: var(--tinta); background: var(--sol); }
+  .cta-final .price { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .cta-final .price-old { color: rgba(255,255,255,0.5); text-decoration: line-through; font-size: 1.5rem; }
+  .cta-final .price-new { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 4rem; line-height: 1; color: #fff; }
+  .cta-final .btn { max-width: 400px; margin: 0 auto; background: var(--sol); color: var(--tinta); }
+  .cta-final .btn svg { background: var(--tinta); }
+  .cta-final .btn svg path { stroke: var(--sol); }
+  .selo { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; border-radius: 99px; }
+
+  /* Barra mobile */
+  .mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+    border-top: 2.5px solid var(--tinta);
+    padding: 0.8rem 1rem calc(0.8rem + env(safe-area-inset-bottom,0px)); display: none; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  @media (max-width: 768px) {
+    .mobile-bar { display: flex; }
+    .mobile-bar-price { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.4rem; line-height: 1; }
+    .mobile-bar-price small { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600; color: var(--mudo); text-transform: uppercase; margin-top: 0.2rem; }
+    .mobile-bar .btn { width: auto; padding: 0.6rem 1rem; font-size: 1rem; }
+    .mobile-bar .btn svg { width: 30px; height: 30px; padding: 6px; }
+  }
+
+  @media (max-width: 900px){
+    .hero__grid, .concept__grid, .artist__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero__visual { order: -1; margin-bottom: 1rem; }
+    .hero__visual > div { max-width: 300px; }
+    .features__grid { grid-template-columns: 1fr; }
+    .specs li { flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+    .hero { min-height: auto; }
+  }
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* Preço: antes e depois de 27/11 (a página troca sozinha) */
+  .so-depois{ display:none; }
+  body.pos-prevenda .so-prevenda{ display:none !important; }
+  body.pos-prevenda .so-depois{ display:inline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    .page { transition: none !important; }
+    .mini-gallery-item { transition: none !important; transform: none !important; }
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<header class="nav">
+  <a href="#" class="nav__mark">Uns Predinhos</a>
+  <nav class="nav__links" aria-label="Seções da página">
+    <a href="#conceito">O Conceito</a>
+    <a href="#detalhes">O Objeto</a>
+    <a href="#depoimentos">Avaliações</a>
+    <a href="#faq">Dúvidas</a>
+  </nav>
+  <a href="#comprar" class="nav__cta"><span class="so-prevenda" style="display:inline">Pré-venda</span><span class="so-depois">Comprar</span></a>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow reveal">Um predinho por dia, o ano inteiro</p>
+        <h1 class="reveal">Calendário 2026:<br><span>Predinho do Dia ™</span></h1>
+        <p class="lead reveal">No dia 1º de janeiro de 2026, comecei uma jornada artística: pintar 365 predinhos, um por dia!</p>
+        <p class="lead reveal"><strong>Mas tem uma condição:</strong> só posso pintar predinhos em uma rua com o nome do dia que estou desenhando.</p>
+        <p class="hero__sub reveal">Todo dia, um predinho brasileiro diferente pra você conhecer, agora reunidos num calendário A3 pra pendurar na parede.</p>
+
+        <div class="compra reveal">
+          <div class="compra__preco">
+            <span class="price-new"><span class="so-prevenda" style="display:inline">R$ 89,90</span><span class="so-depois">R$ 110</span></span>
+            <span class="price-old so-prevenda">R$ 110</span>
+            <span class="compra__tag so-prevenda">pré-venda</span>
+          </div>
+          <p class="timer so-prevenda" data-timer role="timer" aria-label="Tempo restante da pré-venda">Termina em <b><span data-u="d">--</span>d <span data-u="h">--</span>h <span data-u="m">--</span>min <span data-u="s">--</span>s</b></p>
+          <a class="btn" data-loja href="#comprar">
+            <span><span class="so-prevenda" style="display:inline">Quero o meu</span><span class="so-depois">Ir para a loja</span></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="compra__meta">Envio até 10 de dezembro · Frete calculado no checkout</p>
+        </div>
+      </div>
+
+      <!-- CALENDÁRIO -->
+      <div class="hero__visual reveal">
+        <div>
+          <figure class="sim">
+            <div class="sim__moldura">
+              <video id="sim-video" autoplay muted loop playsinline preload="metadata" poster="video/simulacao.jpg" aria-label="Simulação do calendário pendurado na parede, balançando de leve com uma brisa">
+                <source src="video/simulacao.mp4" type="video/mp4">
+              </video>
+              <span class="sim__selo">Simulação</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE AQUARELAS -->
+  <div class="arte-faixa" aria-hidden="true">
+    <div class="arte-faixa__trilho">
+      <img src="img/m1.jpg" alt="" loading="lazy">
+<img src="img/m6.jpg" alt="" loading="lazy">
+<img src="img/m17.jpg" alt="" loading="lazy">
+<img src="img/m3.jpg" alt="" loading="lazy">
+<img class="big" src="img/m-big.jpg" alt="" loading="lazy">
+<img src="img/m8.jpg" alt="" loading="lazy">
+<img src="img/m12.jpg" alt="" loading="lazy">
+<img src="img/m5.jpg" alt="" loading="lazy">
+<img src="img/m19.jpg" alt="" loading="lazy">
+<img src="img/m2.jpg" alt="" loading="lazy">
+<img src="img/m14.jpg" alt="" loading="lazy">
+<img src="img/m9.jpg" alt="" loading="lazy">
+<img src="img/m16.jpg" alt="" loading="lazy">
+<img src="img/m4.jpg" alt="" loading="lazy">
+<img src="img/m11.jpg" alt="" loading="lazy">
+<img src="img/m18.jpg" alt="" loading="lazy">
+<img src="img/m7.jpg" alt="" loading="lazy">
+<img src="img/m13.jpg" alt="" loading="lazy">
+<img src="img/m20.jpg" alt="" loading="lazy">
+<img src="img/m10.jpg" alt="" loading="lazy">
+<img src="img/m15.jpg" alt="" loading="lazy">
+      <img src="img/m1.jpg" alt="" loading="lazy">
+<img src="img/m6.jpg" alt="" loading="lazy">
+<img src="img/m17.jpg" alt="" loading="lazy">
+<img src="img/m3.jpg" alt="" loading="lazy">
+<img class="big" src="img/m-big.jpg" alt="" loading="lazy">
+<img src="img/m8.jpg" alt="" loading="lazy">
+<img src="img/m12.jpg" alt="" loading="lazy">
+<img src="img/m5.jpg" alt="" loading="lazy">
+<img src="img/m19.jpg" alt="" loading="lazy">
+<img src="img/m2.jpg" alt="" loading="lazy">
+<img src="img/m14.jpg" alt="" loading="lazy">
+<img src="img/m9.jpg" alt="" loading="lazy">
+<img src="img/m16.jpg" alt="" loading="lazy">
+<img src="img/m4.jpg" alt="" loading="lazy">
+<img src="img/m11.jpg" alt="" loading="lazy">
+<img src="img/m18.jpg" alt="" loading="lazy">
+<img src="img/m7.jpg" alt="" loading="lazy">
+<img src="img/m13.jpg" alt="" loading="lazy">
+<img src="img/m20.jpg" alt="" loading="lazy">
+<img src="img/m10.jpg" alt="" loading="lazy">
+<img src="img/m15.jpg" alt="" loading="lazy">
+    </div>
+  </div>
+
+  <!-- PROJETO + MINI GALERIA -->
+  <section id="conceito">
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">01 — O projeto</span>
+      <div class="concept__grid">
+        <div class="reveal">
+          <h2>Cada predinho, <em>uma rua do dia</em>.</h2>
+          <p>No dia 6, a Rua Seis de Janeiro. No dia 7, a Rua Sete de Janeiro. Em cidades de todo o Brasil.</p>
+          <p>No calendário, eles ficam todos juntos: uma folha por mês.</p>
+        </div>
+
+        <div class="mini-gallery reveal">
+          <div class="mini-gallery-item">
+            <img src="img/g1.jpg" alt="Aquarela de casas coloridas na Rua Seis de Janeiro, em Mossoró" loading="lazy">
+            <div class="mini-gallery-label">
+              <div class="mini-gallery-caption">Rua Seis de Janeiro</div>
+              <div class="mini-gallery-sub">Mossoró, RN</div>
+            </div>
+          </div>
+          <div class="mini-gallery-item">
+            <img src="img/g2.jpg" alt="Aquarela de casas verdes e azuis na Rua Sete de Janeiro, em Salvador" loading="lazy">
+            <div class="mini-gallery-label">
+              <div class="mini-gallery-caption">Rua Sete de Janeiro</div>
+              <div class="mini-gallery-sub">Salvador, BA</div>
+            </div>
+          </div>
+          <div class="mini-gallery-item">
+            <img src="img/g3.jpg" alt="Aquarela de uma igreja na Rua Vinte e Quatro de Janeiro, em Xapuri" loading="lazy">
+            <div class="mini-gallery-label">
+              <div class="mini-gallery-caption">Rua Vinte e Quatro de Janeiro</div>
+              <div class="mini-gallery-sub">Xapuri, AC</div>
+            </div>
+          </div>
+          <div class="mini-gallery-item">
+            <img src="img/g4.jpg" alt="Aquarela de uma fachada azul e amarela na Rua Vinte e Sete de Janeiro, em Olinda" loading="lazy">
+            <div class="mini-gallery-label">
+              <div class="mini-gallery-caption">Rua Vinte e Sete de Janeiro</div>
+              <div class="mini-gallery-sub">Olinda, PE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÓ UM DIA -->
+  <section>
+    <div class="wrap">
+      <div class="um-dia reveal">
+        <div>
+          <h2>Prefere só um dia?</h2>
+          <p>Você também pode levar uma reprodução Fine Art do predinho de uma data especial, como um aniversário. Impressa em papel de algodão, assinada à mão e com certificado de autenticidade.</p>
+        </div>
+        <a class="btn" href="https://www.brunolorenz.com.br/product-page/predinho-do-dia-reprodu%C3%A7%C3%A3o-individual" target="_blank" rel="noopener">
+          <span>Escolher um dia</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEOS DO INSTAGRAM (aparece sozinha quando houver links em REELS) -->
+  <section id="videos" hidden>
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">02 — Na prática</span>
+      <h2 class="reveal">Veja o projeto <em>acontecendo</em>.</h2>
+      <div class="reels reveal" id="reels"></div>
+      <p class="testimonial-more reveal" style="margin-top:1.5rem;"><a href="https://www.instagram.com/unspredinhos/" target="_blank" rel="noopener">Ver mais no Instagram @unspredinhos →</a></p>
+    </div>
+  </section>
+
+  <!-- O OBJETO -->
+  <section class="tom" id="detalhes">
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">03 — O objeto</span>
+      <h2 class="reveal">Arte na parede, <em>o ano inteiro</em>.</h2>
+
+      <div class="folhas-reais reveal">
+        <div class="folhas-reais__txt">
+          <h3>As folhas de verdade</h3>
+          <p>Estas são as folhas de janeiro a abril como vão ser impressas, com as minhas pinturas de verdade. Cada uma traz um predinho por dia, com a rua, a cidade e o estado embaixo.</p>
+        </div>
+        <div class="folhas-reais__cal">
+          <div class="calendar-container" id="calendar-container" role="img" aria-label="Folhas do calendário (janeiro a abril): uma aquarela de predinho por dia, cada uma com rua, cidade e estado, e uma faixa com os dias do mês na base">
+            <div class="calendar-top" aria-hidden="true">
+              <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+              <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+            </div>
+            <!-- as folhas são criadas pelo script, a partir da lista MESES -->
+          </div>
+        </div>
+      </div>
+
+      <div class="features__grid reveal">
+        <div class="feature-card">
+          <h3>O que cada folha traz</h3>
+          <p>Uma pintura por dia, com a rua, a cidade e o estado embaixo. Na base, uma faixa com os dias da semana e do mês.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Pra quem é</h3>
+          <p>O calendário foi pensado mais como uma peça de decoração divertida, que todo dia mostra alguma coisa nova!</p>
+        </div>
+        <div class="feature-card">
+          <h3>Pronto pra pendurar</h3>
+          <p>Vem com corte meia lua no alto e wire-o branco: é só pendurar num prego.</p>
+        </div>
+      </div>
+
+      <div class="detalhe-faixa reveal">
+        <h3>A faixa de dias, de perto</h3>
+        <p>Quem quiser acompanhar a data encontra os dias aqui, na base de cada folha.</p>
+        <img src="img/faixa.jpg" alt="Faixa na base da folha de janeiro, com os dias da semana (S, T, Q) e os números de 1 a 31, fins de semana em destaque" width="600" height="58">
+        <small>Detalhe da folha de janeiro.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHA TÉCNICA -->
+  <section>
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">04 — Especificações</span>
+      <h2 class="reveal">Ficha <em>técnica</em>.</h2>
+
+      <div class="specs-wrapper reveal">
+        <ul class="specs">
+          <li><b>Formato</b><span>Premium A3 (29,7 x 42 cm)</span></li>
+          <li><b>Páginas</b><span>14 páginas</span></li>
+          <li><b>Papel</b><span>Couché fosco 150 g</span></li>
+          <li><b>Impressão</b><span>Colorida (4x0)</span></li>
+          <li><b>Acabamento</b><span>Wire-o branco e corte meia lua</span></li>
+          <li><b>Envio</b><span>Até 10 de dezembro</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="tom" id="depoimentos">
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">05 — Quem já encomendou</span>
+      <h2 class="reveal">Avaliações <em>no Google</em>.</h2>
+      <p class="nota-depoimentos reveal">Sobre as aquarelas feitas sob encomenda.</p>
+
+      <div class="testimonial-track reveal">
+        <div class="testimonial-card">
+          <p>“Bruno fez uma aquarela belíssima da casa dos meus avós, a partir de duas fotos parciais da casa. Soube uni-las em um desenho só, sempre com uma comunicação muito clara e me consultando pra tirar eventuais dúvidas. O resultado final emocionou a família toda. Recomendo o trabalho dele sem sombra de dúvidas!”</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">V</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Vitória Battisti da Silva</span>
+              <span class="testimonial-role">Avaliação no Google</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>“Minha experiência com o Bruno foi sensacional. Ele foi extremamente atencioso ao longo de todo atendimento e eternizou a casa da minha avó de uma maneira única e especial. Seu talento toca na nossa alma.”</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">C</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Carolina R. Alves Rezende Furtado</span>
+              <span class="testimonial-role">Avaliação no Google</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p>“O Bruno é um cara diferenciado! Excepcional artista! Soube transportar exatamente o momento registrado para um pedaço de papel que será eternizado! Muito feliz em fazer o trabalho com ele!”</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">F</div>
+            <div class="testimonial-info">
+              <span class="testimonial-name">Fernando LB</span>
+              <span class="testimonial-role">Local Guide · Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-more reveal">
+        <a href="https://share.google/C3QvFA88iM6EjvNk8" target="_blank" rel="noopener">Ver todas as avaliações no Google →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTA -->
+  <section>
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">06 — Quem faz</span>
+      <div class="artist__grid">
+        <div class="artist__img reveal">
+          <img src="img/bruno.jpg" alt="Retrato de Bruno Lorenz sorrindo" width="720" height="900" loading="lazy">
+        </div>
+        <div class="reveal">
+          <h2>O olhar por trás do <em>pincel</em>.</h2>
+          <p style="font-size:1.1rem; line-height:1.6; margin-bottom:1.2rem;">Bruno Lorenz é artista visual e designer porto-alegrense, criador do projeto Uns Predinhos, um trabalho contínuo de documentação de espaços de memória: a casa da vó, a casa da praia, a casa da infância.</p>
+          <p style="font-size:1.1rem; line-height:1.6;">No Predinho do Dia, pinta diariamente construções em ruas com nome de data espalhadas por todo o país, construindo um arquivo visual da arquitetura brasileira e das suas histórias ignoradas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tom" id="faq">
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">07 — Dúvidas</span>
+      <h2 class="reveal">Perguntas <em>frequentes</em>.</h2>
+
+      <div class="faq-list reveal">
+        <details>
+          <summary>Dá pra usar como agenda?</summary>
+          <p>Mais ou menos: cada folha tem uma faixa com os dias, pra acompanhar a data, mas não tem espaço pra anotações. Ele foi pensado mais como uma peça de decoração divertida, que todo dia mostra alguma coisa nova.</p>
+        </details>
+        <details>
+          <summary>Quando recebo?</summary>
+          <p>Os pedidos são enviados pelo correio até 10 de dezembro. O frete e a estimativa de entrega aparecem no checkout.</p>
+        </details>
+        <details>
+          <summary>Posso devolver?</summary>
+          <p>Você tem 7 dias corridos, a partir do recebimento, pra pedir a devolução. As condições completas estão na página do produto na loja.</p>
+        </details>
+        <details>
+          <summary>Posso escolher a rua ou a cidade?</summary>
+          <p>No calendário, cada dia já vem com o seu predinho, então a rua e a cidade são as do projeto. Se você quiser um dia específico, dá pra pedir uma <a href="https://www.brunolorenz.com.br/product-page/predinho-do-dia-reprodu%C3%A7%C3%A3o-individual" target="_blank" rel="noopener">reprodução individual</a>.</p>
+        </details>
+        <details>
+          <summary>Já existem fotos do calendário impresso?</summary>
+          <p>Ainda não, porque ele ainda não foi impresso. As folhas mostradas aqui são a arte real, e as imagens do calendário montado são ilustrações.</p>
+        </details>
+        <details>
+          <summary>E o calendário de mesa?</summary>
+          <p>Eu queria muito fazer também uma versão de mesa, mas não deu tempo, e alguns fornecedores não toparam produzir, porque é bem mais difícil que o de parede. Por enquanto existe só o A3. Se a de mesa sair, aviso no Instagram @unspredinhos.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <!-- PARA ONDE VAI O DINHEIRO -->
+  <section id="rateio">
+    <div class="wrap">
+      <span class="sticker reveal" style="margin-bottom:1rem;">08 — Transparência</span>
+      <h2 class="reveal">Pra onde vai <em>o dinheiro</em>.</h2>
+      <p class="reveal" style="font-size:1.1rem; line-height:1.6; max-width:60ch; margin-bottom:1.8rem;">10% de cada calendário vendido vão para o <a href="https://www.instagram.com/resgatinhospoa/" target="_blank" rel="noopener"><b>@resgatinhospoa</b></a>. Pra ficar claro, aqui está a divisão do valor de um calendário:</p>
+
+      <div class="rateio__card reveal">
+        <div class="rateio__topo">
+          <b>Um calendário: <span id="rateio-total" style="color:inherit;font-size:inherit;">R$ 89,90</span></b>
+          <span id="rateio-rotulo">preço de pré-venda · o frete é pago à parte, no checkout</span>
+        </div>
+        <div class="rateio__barra" id="rateio-barra" role="img" aria-label="Divisão do valor de um calendário entre impressão, doação e trabalho do artista"></div>
+        <ul class="rateio__lista" id="rateio-lista"></ul>
+        <p class="rateio__nota">A doação é calculada sobre o valor do calendário. Dúvidas sobre a divisão? Me chama no Instagram <a href="https://www.instagram.com/unspredinhos/" target="_blank" rel="noopener">@unspredinhos</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="comprar">
+    <div class="cta-final reveal">
+      <h2>Vem ter um <em>predinho por dia</em> na parede?</h2>
+      <p style="font-size:1.1rem; margin-bottom:2rem;">
+        <span class="so-prevenda" style="display:inline">Aproveite o preço de pré-venda até 27 de novembro. Depois, o valor passa a ser R$ 110.</span>
+        <span class="so-depois">Os pedidos são enviados até 10 de dezembro.</span>
+      </p>
+
+      <p class="timer so-prevenda" data-timer role="timer" aria-label="Tempo restante da pré-venda">Termina em <b><span data-u="d">--</span>d <span data-u="h">--</span>h <span data-u="m">--</span>min <span data-u="s">--</span>s</b></p>
+
+      <div class="price">
+        <span class="price-old so-prevenda">R$ 110</span>
+        <span class="price-new"><span class="so-prevenda" style="display:inline">R$ 89,90</span><span class="so-depois">R$ 110</span></span>
+      </div>
+
+      <a data-loja href="#comprar" class="btn">
+        <span>Quero o meu</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+
+      <div class="selo">Envio pelo correio até 10 de dezembro</div>
+      <p class="outro">Prefere só um dia? <a href="https://www.brunolorenz.com.br/product-page/predinho-do-dia-reprodu%C3%A7%C3%A3o-individual" target="_blank" rel="noopener">Dá uma olhada na reprodução individual →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap" style="text-align:center; padding:2rem 0; font-weight:600; border-top:2.5px solid var(--tinta); margin-top:2rem;">
+  <p>© 2026 · Uns Predinhos, aquarelas de Bruno Lorenz</p>
+</footer>
+
+<!-- Barra mobile -->
+<div class="mobile-bar">
+  <div class="mobile-bar-price">
+    <span class="so-prevenda" style="display:inline">R$ 89,90</span><span class="so-depois">R$ 110</span>
+    <small><span class="so-prevenda" style="display:inline">Termina em <span data-short>--</span></span><span class="so-depois">Envio até 10/12</span></small>
+  </div>
+  <a data-loja href="#comprar" class="btn">
+    <span>Quero</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<dialog id="zoom" aria-label="Folha ampliada"><button type="button" class="zoom__x" aria-label="Fechar">×</button><img alt=""></dialog>
+
+<script>
+  /* ───────── CONFIGURAÇÃO (é só aqui que você mexe) ───────── */
+  // Link direto do produto na loja do Wix:
+  var LOJA_URL = "https://www.brunolorenz.com.br/product-page/calend%C3%A1rio-2026-predinho-do-dia";   // ex.: "https://www.seusite.com.br/product-page/calendario-predinho-do-dia"
+  // Fim da pré-venda (depois disso a página mostra R$ 110 sozinha).
+  // Lembre de trocar o preço na loja do Wix também.
+  var FIM_PREVENDA = "2026-11-27T23:59:59-03:00";
+  // Folhas do calendário na animação do topo, na ordem (hoje, janeiro a abril).
+  // Para acrescentar mais meses, coloque a imagem em img/ e inclua uma linha aqui.
+  var MESES = [
+    { src: "img/janeiro.jpg",   alt: "Folha de janeiro do calendário" },
+    { src: "img/fevereiro.jpg", alt: "Folha de fevereiro do calendário" },
+    { src: "img/marco.jpg",     alt: "Folha de março do calendário" },
+    { src: "img/abril.jpg",     alt: "Folha de abril do calendário" }
+  ];
+
+  // Links dos vídeos (reels ou posts) do seu Instagram que você quer mostrar, de 2 a 3.
+  // Ex.: "https://www.instagram.com/reel/XXXXXXXXXXX/". Enquanto a lista estiver vazia, a seção não aparece.
+  var REELS = ["https://www.instagram.com/reel/DUZAp_-gR-C/"];
+
+  /* ───────── Links da loja ───────── */
+  if (LOJA_URL) {
+    document.querySelectorAll("[data-loja]").forEach(function (a) { a.href = LOJA_URL; });
+  }
+
+  /* ───────── Pré-venda: contagem regressiva e troca de preço ───────── */
+  var fim = new Date(FIM_PREVENDA);
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  // ---- Divisão do valor (gráfico) ----
+  var PRECO_PREVENDA = 89.90, PRECO_NORMAL = 110;
+  var CUSTO_PRODUCAO = 30.00;    // impressão na gráfica + transporte até o ateliê, por unidade — ajuste aqui
+  var PCT_DOACAO = 0.10;         // doação ao @resgatinhospoa
+  function brl(v){ return "R$ " + v.toFixed(2).replace(".", ","); }
+  function renderRateio(){
+    var barra = document.getElementById("rateio-barra"); if (!barra) return;
+    var pos = document.body.classList.contains("pos-prevenda");
+    var total = pos ? PRECO_NORMAL : PRECO_PREVENDA;
+    var doacao = total * PCT_DOACAO;
+    var impressao = CUSTO_PRODUCAO;
+    var resto = total - impressao - doacao;
+    var itens = [
+      { cor:"#3B82F6", nome:"Produção e transporte", desc:"Impressão na gráfica (couché fosco 150 g, wire-o e corte meia lua) e transporte até o meu ateliê.", v:impressao },
+      { cor:"#FFD93B", nome:"@resgatinhospoa", desc:"10% do valor do calendário, doados.", v:doacao },
+      { cor:"#F8F6F0", nome:"Meu trabalho e demais custos", desc:"Um ano de pinturas, mais embalagem pros correios, taxas de pagamento e impostos.", v:resto }
+    ];
+    document.getElementById("rateio-total").textContent = brl(total);
+    document.getElementById("rateio-rotulo").textContent = (pos ? "preço normal" : "preço de pré-venda") + " · o frete é pago à parte, no checkout";
+    barra.innerHTML = ""; var lista = document.getElementById("rateio-lista"); lista.innerHTML = "";
+    itens.forEach(function(it){
+      var d = document.createElement("div"); d.style.background = it.cor; d.style.flex = (it.v / total * 100) + " 1 0"; barra.appendChild(d);
+      var li = document.createElement("li");
+      li.innerHTML = '<span class="rateio__cor" style="background:'+it.cor+'"></span><div><strong>'+it.nome+'</strong><small>'+it.desc+'</small></div><div class="rateio__valor">'+brl(it.v)+' <small>('+Math.round(it.v/total*100)+'%)</small></div>';
+      lista.appendChild(li);
+    });
+  }
+
+  function tick() {
+    var ms = fim - new Date();
+    if (ms <= 0) { document.body.classList.add("pos-prevenda"); renderRateio(); return false; }
+    var s = Math.floor(ms / 1000), d = Math.floor(s / 86400), hh = Math.floor((s % 86400) / 3600),
+        mm = Math.floor((s % 3600) / 60), ss = s % 60, v = { d: d, h: pad(hh), m: pad(mm), s: pad(ss) };
+    document.querySelectorAll("[data-timer]").forEach(function (box) {
+      box.querySelectorAll("[data-u]").forEach(function (el) { el.textContent = v[el.getAttribute("data-u")]; });
+    });
+    document.querySelectorAll("[data-short]").forEach(function (el) { el.textContent = d + "d " + pad(hh) + "h"; });
+    return true;
+  }
+
+  // vídeo de simulação: respeita "reduzir movimento"
+  (function(){
+    var v = document.getElementById("sim-video"); if (!v) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); v.setAttribute("controls", ""); }
+  })();
+  renderRateio();
+  if (tick()) { var iv = setInterval(function () { if (!tick()) clearInterval(iv); }, 1000); }
+
+  /* ───────── Ampliar folhas ───────── */
+  (function () {
+    var dlg = document.getElementById("zoom"); if (!dlg || !dlg.showModal) return;
+    var img = dlg.querySelector("img");
+    document.querySelectorAll("[data-zoom]").forEach(function (b) {
+      b.addEventListener("click", function () { img.src = b.getAttribute("data-zoom"); img.alt = b.getAttribute("data-alt") || ""; dlg.showModal(); });
+    });
+    dlg.querySelector(".zoom__x").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+
+  /* ───────── Vídeos do Instagram ───────── */
+  (function () {
+    var box = document.getElementById("reels"), ok = 0;
+    REELS.forEach(function (u) {
+      var m = String(u).match(/instagram\.com\/(reel|reels|p|tv)\/([A-Za-z0-9_-]+)/);
+      if (!m || !box) return;
+      var f = document.createElement("iframe");
+      f.src = "https://www.instagram.com/" + (m[1] === "reels" ? "reel" : m[1]) + "/" + m[2] + "/embed";
+      f.loading = "lazy"; f.title = "Vídeo do projeto no Instagram";
+      f.setAttribute("scrolling", "no"); f.setAttribute("allowtransparency", "true");
+      box.appendChild(f); ok++;
+    });
+    if (ok) document.getElementById("videos").hidden = false;
+  })();
+
+  /* ───────── Revelação ao rolar ───────── */
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ───────── Calendário: monta as folhas e, havendo mais de uma, folheia ───────── */
+  var container = document.getElementById("calendar-container");
+  // a última da lista fica por baixo; a primeira (janeiro) fica por cima
+  for (var i = MESES.length - 1; i >= 0; i--) {
+    var p = document.createElement("div");
+    p.className = "page";
+    p.innerHTML = '<div class="page-front"><img alt="" src="' + MESES[i].src + '"></div><div class="page-back"></div>';
+    container.appendChild(p);
+  }
+  var pages = container.querySelectorAll(".page");
+  var reduzMov = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (pages.length > 1 && !reduzMov) {
+    container.classList.add("animavel");
+    var flipped = 0, dir = 1, timer, pausado = false, maxFlipped = pages.length - 1;
+
+    function passo() {
+      if (pausado) return;
+      if (dir === 1) {
+        if (flipped < maxFlipped) { pages[pages.length - 1 - flipped].classList.add("flipped"); flipped++; }
+        else { timer = setTimeout(function () { dir = -1; passo(); }, 2500); return; }
+      } else {
+        if (flipped > 0) { pages[pages.length - flipped].classList.remove("flipped"); flipped--; }
+        else { timer = setTimeout(function () { dir = 1; passo(); }, 2500); return; }
+      }
+      timer = setTimeout(passo, 1500);
+    }
+    window.addEventListener("load", function () { setTimeout(passo, 1000); });
+    container.addEventListener("mouseenter", function () { pausado = true; clearTimeout(timer); });
+    container.addEventListener("mouseleave", function () { pausado = false; passo(); });
+    container.addEventListener("touchstart", function () { pausado = !pausado; if (pausado) clearTimeout(timer); else passo(); }, { passive: true });
+  }
+</script>
+
+</body>
+</html>
