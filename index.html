@@ -273,7 +273,13 @@
   .zoom__x{ position:sticky; top:.6rem; float:right; margin:.6rem .6rem -3rem 0; width:2.4rem; height:2.4rem; border-radius:50%; border:2px solid var(--tinta); background:var(--sol); font-size:1.4rem; line-height:1; cursor:pointer; z-index:2; }
 
   /* Só um dia */
-  .um-dia{ display:flex; gap:2rem; align-items:center; justify-content:space-between; flex-wrap:wrap; background:var(--sol); border:2.5px solid var(--tinta); border-radius:24px; box-shadow:0 5px 0 var(--tinta); padding:2rem; }
+  .um-dia{ display:grid; grid-template-columns:minmax(200px,300px) 1fr; gap:2.5rem; align-items:center; background:var(--sol); border:2.5px solid var(--tinta); border-radius:24px; box-shadow:0 5px 0 var(--tinta); padding:2rem; }
+  .um-dia__foto{ width:100%; height:auto; display:block; border:2.5px solid var(--tinta); border-radius:14px; box-shadow:0 5px 0 var(--tinta); transform:rotate(-2deg); }
+  .um-dia__txt .btn{ margin-top:1.4rem; }
+  @media (max-width:700px){ .um-dia{ grid-template-columns:1fr; gap:1.8rem; } .um-dia__foto{ max-width:260px; margin:0 auto; } }
+  .concept__grid .btn--claro{ margin-top:.6rem; max-width:420px; background:var(--tinta); color:#fff; box-shadow:0 6px 0 var(--azul); }
+  .concept__grid .btn--claro svg{ background:var(--sol); }
+  .concept__grid .btn--claro svg path{ stroke:var(--tinta); }
   .um-dia h2{ margin-bottom:.5rem; font-size:clamp(1.5rem,3vw,2.2rem); }
   .um-dia p{ max-width:46ch; font-size:1.05rem; }
   .um-dia .btn{ max-width:340px; background:var(--tinta); color:#fff; box-shadow:0 6px 0 var(--azul); }
@@ -409,7 +415,7 @@
           </div>
           <p class="timer so-prevenda" data-timer role="timer" aria-label="Tempo restante da pré-venda">Termina em <b><span data-u="d">--</span>d <span data-u="h">--</span>h <span data-u="m">--</span>min <span data-u="s">--</span>s</b></p>
           <a class="btn" data-loja href="#comprar">
-            <span><span class="so-prevenda" style="display:inline">Quero o meu</span><span class="so-depois">Ir para a loja</span></span>
+            <span><span class="so-prevenda" style="display:inline">Quero meu calendário!</span><span class="so-depois">Ir para a loja</span></span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <p class="compra__meta">Envio até 10 de dezembro · Frete calculado no checkout</p>
@@ -487,8 +493,13 @@
       <div class="concept__grid">
         <div class="reveal">
           <h2>Cada predinho, <em>uma rua do dia</em>.</h2>
-          <p>No dia 6, a Rua Seis de Janeiro. No dia 7, a Rua Sete de Janeiro. Em cidades de todo o Brasil.</p>
-          <p>No calendário, eles ficam todos juntos: uma folha por mês.</p>
+          <p>Desde 1º de janeiro de 2026, eu pinto um predinho por dia. A regra é uma só: ele precisa ficar numa rua com o nome daquele dia. No dia 6, a Rua Seis de Janeiro. No dia 7, a Rua Sete de Janeiro. No dia 1º de fevereiro, a Rua 1º de Fevereiro.</p>
+          <p>Essas ruas existem em cidades de todo o Brasil, então o projeto vai de Mossoró a Xapuri, de Salvador a Olinda. Pinto casas, comércios e prédios pequenos, daqueles que a gente passa em frente todo dia sem reparar, e cada pintura leva o nome da rua, da cidade e do estado.</p>
+          <p>No calendário, eles ficam todos juntos: uma folha por mês, com a pintura de cada dia.</p>
+          <a class="btn btn--claro" href="https://brunolorenz.github.io/unspredinhos/galeria/" target="_blank" rel="noopener">
+            <span>Conhecer o predinho do seu dia!</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
 
         <div class="mini-gallery reveal">
@@ -529,14 +540,15 @@
   <section>
     <div class="wrap">
       <div class="um-dia reveal">
-        <div>
+        <img class="um-dia__foto" src="img/reproducao.jpg" alt="Reprodução de uma aquarela da Rua Dezenove de Fevereiro, Rio de Janeiro, numa moldura de madeira segurada na mão" width="320" height="400" loading="lazy">
+        <div class="um-dia__txt">
           <h2>Prefere só um dia?</h2>
           <p>Você também pode levar uma reprodução Fine Art do predinho de uma data especial, como um aniversário. Impressa em papel de algodão, assinada à mão e com certificado de autenticidade.</p>
+          <a class="btn" href="https://www.brunolorenz.com.br/product-page/predinho-do-dia-reprodu%C3%A7%C3%A3o-individual" target="_blank" rel="noopener">
+            <span>Comprar o predinho do seu dia</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
-        <a class="btn" href="https://www.brunolorenz.com.br/product-page/predinho-do-dia-reprodu%C3%A7%C3%A3o-individual" target="_blank" rel="noopener">
-          <span>Escolher um dia</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
       </div>
     </div>
   </section>
@@ -749,7 +761,7 @@
       </div>
 
       <a data-loja href="#comprar" class="btn">
-        <span>Quero o meu</span>
+        <span>Quero meu calendário!</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
 
@@ -796,7 +808,11 @@
 
   // Links dos vídeos (reels ou posts) do seu Instagram que você quer mostrar, de 2 a 3.
   // Ex.: "https://www.instagram.com/reel/XXXXXXXXXXX/". Enquanto a lista estiver vazia, a seção não aparece.
-  var REELS = ["https://www.instagram.com/reel/DUZAp_-gR-C/"];
+  var REELS = [
+    "https://www.instagram.com/reel/DUZAp_-gR-C/",
+    "https://www.instagram.com/reel/DTBVaWegex6/",
+    "https://www.instagram.com/reel/DfhX6HuxzWj/"
+  ];
 
   /* ───────── Links da loja ───────── */
   if (LOJA_URL) {
